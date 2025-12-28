@@ -1,17 +1,28 @@
 /**
  * Featured Content Section - Dating Receipts Homepage
- * Top 3 YouTube Shorts (placeholder for now)
+ * Top 3 YouTube Shorts embedded videos
  */
 
 "use client";
 
 export default function FeaturedContent() {
-  // Placeholder for YouTube Shorts embedding
-  // In production, these would be actual YouTube embed URLs
+  // Featured YouTube Shorts videos
   const featuredShorts = [
-    { id: 1, title: "Top Red Flag #1" },
-    { id: 2, title: "Top Red Flag #2" },
-    { id: 3, title: "Top Red Flag #3" },
+    {
+      id: "eFUJJwVFlAY",
+      title: "Featured Receipt #1",
+      url: "https://youtube.com/shorts/eFUJJwVFlAY",
+    },
+    {
+      id: "g524x6pdRuI",
+      title: "Featured Receipt #2",
+      url: "https://youtube.com/shorts/g524x6pdRuI",
+    },
+    {
+      id: "Rw36TBvc_zI",
+      title: "Featured Receipt #3",
+      url: "https://youtube.com/shorts/Rw36TBvc_zI",
+    },
   ];
 
   return (
@@ -29,18 +40,28 @@ export default function FeaturedContent() {
               className="bg-dark-elevated border border-muted rounded-lg p-6 animate-fade-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Placeholder for YouTube Short embed */}
-              <div className="aspect-[9/16] bg-dark-bg rounded-lg mb-4 flex items-center justify-center border border-muted">
-                <p className="text-muted-foreground font-mono text-sm">
-                  {short.title}
-                </p>
+              {/* YouTube Short embed */}
+              <div className="aspect-[9/16] bg-dark-bg rounded-lg mb-4 overflow-hidden border border-muted">
+                <iframe
+                  src={`https://www.youtube.com/embed/${short.id}`}
+                  title={short.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-full"
+                  loading="lazy"
+                />
               </div>
               <h3 className="text-white font-headline font-bold text-lg mb-2">
                 {short.title}
               </h3>
-              <p className="text-muted-foreground font-mono text-sm">
-                Watch on YouTube Shorts
-              </p>
+              <a
+                href={short.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-red-flag hover:text-red-flag-dark font-mono text-sm transition-colors"
+              >
+                Watch on YouTube Shorts →
+              </a>
             </div>
           ))}
         </div>
