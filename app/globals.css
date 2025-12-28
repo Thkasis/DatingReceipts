@@ -1,0 +1,190 @@
+/**
+ * Global Styles for Dating Receipts Website
+ * Dark mode theme with "Red Flag" aesthetic and receipt-inspired design
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark Theme Variables - Default */
+    --background: 0 0% 7%; /* #121212 */
+    --foreground: 0 0% 98%;
+
+    /* Surface Colors */
+    --card: 0 0% 12%; /* #1E1E1E */
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Red Flag Red - Primary Brand Color */
+    --primary: 0 100% 59%; /* #FF3B30 */
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 0 100% 70%;
+
+    /* Secondary - Dark Surface */
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    /* Interactive States */
+    --muted: 0 0% 16%; /* #2A2A2A */
+    --muted-foreground: 0 0% 62%;
+
+    /* Warning Yellow Accent */
+    --accent: 50 100% 52%; /* #FFD60A */
+    --accent-foreground: 0 0% 7%;
+
+    /* System Colors */
+    --destructive: 0 100% 59%; /* Red Flag Red */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 16%;
+    --ring: 0 100% 59%;
+
+    --radius: 0.75rem;
+
+    /* Receipt Texture Pattern */
+    --receipt-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm0 0c0 11.046 8.954 20 20 20s20-8.954 20-20-8.954-20-20-20-20 8.954-20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dark-bg text-foreground font-mono antialiased;
+    min-height: 100vh;
+    background-color: #121212;
+    background-image: var(--receipt-pattern);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #1E1E1E;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #FF3B30;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FF6B63;
+  }
+}
+
+@layer utilities {
+  /* Text Effects */
+  .text-red-flag {
+    color: #FF3B30;
+  }
+
+  .text-gradient-red {
+    @apply bg-gradient-to-r from-red-flag to-red-flag-light bg-clip-text text-transparent;
+  }
+
+  /* Glow Effects */
+  .glow-red {
+    box-shadow: 0 0 20px rgba(255, 59, 48, 0.5);
+  }
+
+  .glow-red-lg {
+    box-shadow: 0 0 40px rgba(255, 59, 48, 0.6);
+  }
+
+  /* Glitch Effect */
+  .glitch-text {
+    position: relative;
+    animation: glitch 0.3s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+  }
+
+  /* Chat Bubble Styles */
+  .chat-bubble {
+    border-radius: 16px;
+    position: relative;
+  }
+
+  .chat-bubble-left {
+    border-bottom-left-radius: 4px;
+  }
+
+  .chat-bubble-right {
+    border-bottom-right-radius: 4px;
+  }
+
+  /* Receipt Paper Effect */
+  .receipt-paper {
+    background: #FFFFFF;
+    background-image: var(--receipt-pattern);
+    color: #121212;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Button Styles */
+  .btn-red-flag {
+    @apply bg-red-flag text-white font-headline font-bold px-8 py-4 rounded-lg;
+    @apply hover:bg-red-flag-dark transition-all duration-300;
+    @apply hover:glow-red active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply border-2 border-red-flag text-red-flag font-headline font-bold px-8 py-4 rounded-lg;
+    @apply hover:bg-red-flag hover:text-white transition-all duration-300;
+    @apply active:scale-95;
+  }
+
+  /* Input Styles */
+  .input-receipt {
+    @apply bg-dark-surface border border-muted text-foreground font-mono;
+    @apply focus:border-red-flag focus:ring-2 focus:ring-red-flag focus:ring-opacity-20;
+    @apply placeholder:text-muted-foreground;
+  }
+
+  /* Text Balance */
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Glitch Animation */
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
+
+/* Mobile-first responsive adjustments */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+

@@ -1,0 +1,30 @@
+# Cloudflare Workers Configuration for Dating Receipts
+# Schema: https://developers.cloudflare.com/workers/wrangler/configuration/
+
+name = "dating-receipts"
+main = "src/index.js"
+compatibility_date = "2024-01-15"
+compatibility_flags = ["nodejs_compat"]
+
+# Assets configuration - Static site hosting
+[assets]
+directory = "./out"
+binding = "ASSETS"
+run_worker_first = true
+
+[vars]
+NODE_ENV = "production"
+NEXT_PUBLIC_SITE_URL = "https://datingreceipts.com"
+# RESEND_API_KEY should be set as a Wrangler Secret (persists across deployments)
+# Run: npx wrangler secret put RESEND_API_KEY
+# DO NOT add it to [vars] - that's for public configuration only!
+
+# Routes - Update with your actual domain
+# [[routes]]
+# pattern = "datingreceipts.com/*"
+# zone_name = "datingreceipts.com"
+#
+# [[routes]]
+# pattern = "www.datingreceipts.com/*"
+# zone_name = "datingreceipts.com"
+
