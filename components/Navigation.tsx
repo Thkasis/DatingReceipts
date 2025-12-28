@@ -53,7 +53,7 @@ export default function Navigation() {
             </Link>
             <Link href="/submit">
               <Button variant="default" size="sm">
-                Expose Him
+                Expose Them
               </Button>
             </Link>
           </div>
@@ -102,7 +102,7 @@ export default function Navigation() {
               </Link>
               <Link href="/submit" onClick={() => setIsOpen(false)}>
                 <Button variant="default" className="w-full">
-                  Expose Him
+                  Expose Them
                 </Button>
               </Link>
             </div>
