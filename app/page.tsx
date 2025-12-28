@@ -5,14 +5,16 @@
 
 import HeroSection from "@/components/HeroSection";
 import FeaturedContent from "@/components/FeaturedContent";
-import NewsletterSection from "@/components/NewsletterSection";
+// Newsletter section hidden for now
+// import NewsletterSection from "@/components/NewsletterSection";
 
 export default function HomePage() {
   return (
     <div className="relative">
       <HeroSection />
       <FeaturedContent />
-      <NewsletterSection />
+      {/* Newsletter section hidden for now */}
+      {/* <NewsletterSection /> */}
     </div>
   );
 }

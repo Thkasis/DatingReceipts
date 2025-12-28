@@ -71,7 +71,9 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://www.youtube.com/@DATING_RECEIPTS/shorts"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-red-flag transition-colors font-mono text-sm"
                 >
                   YouTube

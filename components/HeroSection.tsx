@@ -51,11 +51,12 @@ export default function HeroSection() {
               Report a Ghoster
             </Button>
           </Link>
-          <Link href="#newsletter">
+          {/* Newsletter link hidden for now */}
+          {/* <Link href="#newsletter">
             <Button variant="outline" size="lg">
               Join the Newsletter
             </Button>
-          </Link>
+          </Link> */}
         </div>
 
         {/* Social Proof */}
@@ -65,7 +66,14 @@ export default function HeroSection() {
           </p>
           <div className="flex items-center justify-center gap-6 flex-wrap">
             <div className="text-foreground font-mono text-sm">TikTok</div>
-            <div className="text-foreground font-mono text-sm">YouTube</div>
+            <a
+              href="https://www.youtube.com/@DATING_RECEIPTS/shorts"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-red-flag font-mono text-sm transition-colors"
+            >
+              YouTube
+            </a>
             <div className="text-foreground font-mono text-sm">Instagram</div>
           </div>
         </div>
