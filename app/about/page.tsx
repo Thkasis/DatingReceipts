@@ -28,6 +28,21 @@ export default function AboutPage() {
               Our goal? To help people recognize red flags early, laugh at the audacity, and ultimately 
               make better dating decisions. Because let's face it—we've all been there.
             </p>
+            
+            <h2 className="text-2xl md:text-3xl font-headline font-bold text-white mb-4 mt-8">
+              Why We Track Ghosters
+            </h2>
+            <p className="text-foreground text-lg font-mono leading-relaxed mb-6">
+              Ghosting isn't just rude—it's emotionally damaging. When someone disappears without explanation, 
+              it leaves you questioning what went wrong, replaying conversations, and wondering if you did something wrong. 
+              We're building a community-driven database to help people identify repeat ghosters before they invest time and emotions.
+            </p>
+            <p className="text-foreground text-lg font-mono leading-relaxed mb-6">
+              By reporting ghosters, you're not seeking revenge—you're protecting others from the same emotional 
+              rollercoaster. Together, we can create accountability and help people make more informed decisions about 
+              who they choose to invest their time in.
+            </p>
+            
             <p className="text-red-flag text-lg font-mono font-bold">
               Run, don't walk. 🚩
             </p>
