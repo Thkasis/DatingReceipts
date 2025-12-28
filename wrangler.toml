@@ -20,6 +20,7 @@ NEXT_PUBLIC_SITE_URL = "https://datingreceipts.com"
 # DO NOT add it to [vars] - that's for public configuration only!
 
 # Routes - Update with your actual domain
+# Uncomment these after DNS is properly configured
 # [[routes]]
 # pattern = "datingreceipts.com/*"
 # zone_name = "datingreceipts.com"
