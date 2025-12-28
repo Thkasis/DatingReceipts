@@ -19,6 +19,7 @@ export default function GhostersForm() {
     platform: "",
     context: "",
     legalConsent: false,
+    email: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -64,6 +65,9 @@ export default function GhostersForm() {
       formDataToSend.append("platform", formData.platform);
       formDataToSend.append("context", formData.context);
       formDataToSend.append("legalConsent", formData.legalConsent.toString());
+      if (formData.email && formData.email.trim() !== "") {
+        formDataToSend.append("email", formData.email.trim());
+      }
 
       const response = await fetch("/api/ghosters", {
         method: "POST",
@@ -80,6 +84,7 @@ export default function GhostersForm() {
           platform: "",
           context: "",
           legalConsent: false,
+          email: "",
         });
         toast.success("Ghoster reported! You're helping others avoid the same fate. 👻");
       } else {
@@ -147,6 +152,25 @@ export default function GhostersForm() {
           }
           placeholder="e.g., Tinder, Hinge, Bumble, Instagram"
         />
+      </div>
+
+      {/* Email (Optional) */}
+      <div>
+        <label htmlFor="email-ghosters" className="block text-white font-headline font-bold mb-4">
+          Email (Optional - for thank you confirmation)
+        </label>
+        <Input
+          id="email-ghosters"
+          type="email"
+          value={formData.email}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, email: e.target.value }))
+          }
+          placeholder="your.email@example.com"
+        />
+        <p className="text-muted-foreground font-mono text-xs mt-2">
+          We'll send you a thank you email with info about Dating Receipts
+        </p>
       </div>
 
       {/* Profile Image Upload */}

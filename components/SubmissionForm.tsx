@@ -18,6 +18,7 @@ export default function SubmissionForm() {
     context: "",
     audacityScore: 5,
     legalConsent: false,
+    email: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -62,6 +63,9 @@ export default function SubmissionForm() {
       formDataToSend.append("context", formData.context);
       formDataToSend.append("audacityScore", formData.audacityScore.toString());
       formDataToSend.append("legalConsent", formData.legalConsent.toString());
+      if (formData.email && formData.email.trim() !== "") {
+        formDataToSend.append("email", formData.email.trim());
+      }
 
       const response = await fetch("/api/submit", {
         method: "POST",
@@ -77,6 +81,7 @@ export default function SubmissionForm() {
           context: "",
           audacityScore: 5,
           legalConsent: false,
+          email: "",
         });
         toast.success("Receipt Printed! If we feature this, you're saving a life. 🚩");
       } else {
@@ -166,6 +171,25 @@ export default function SubmissionForm() {
             ))}
           </div>
         )}
+      </div>
+
+      {/* Email (Optional) */}
+      <div>
+        <label htmlFor="email" className="block text-white font-headline font-bold mb-4">
+          Email (Optional - for thank you confirmation)
+        </label>
+        <Input
+          id="email"
+          type="email"
+          value={formData.email}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, email: e.target.value }))
+          }
+          placeholder="your.email@example.com"
+        />
+        <p className="text-muted-foreground font-mono text-xs mt-2">
+          We'll send you a thank you email with info about Dating Receipts
+        </p>
       </div>
 
       {/* Context */}
